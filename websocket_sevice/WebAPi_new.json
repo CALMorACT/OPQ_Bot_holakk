@@ -1,0 +1,2785 @@
+{
+  "info": {
+    "name": "TestDemo",
+    "description": "",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "发送好友文字消息",
+      "request": {
+        "description": "{\"toUser\":QQ号或群Group🆔,\"sendToType\":1,\"sendMsgType\":\"TextMsg\",\"content\":\"你好\",\"groupid\":0,\"atUser\":0}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"toUser\":123456789,\n  \"sendToType\":1,\n  \"sendMsgType\":\"TextMsg\",\n  \"content\":\"先帝创业未半而中道崩殂，今天下三分，益州疲弊，此诚危急存亡之秋也。然侍卫之臣不懈于内，忠志之士忘身于外者，盖追先帝之殊遇，欲报之于陛下也。诚宜开张圣听，以光先帝遗德，恢弘志士之气，不宜妄自菲薄，引喻失义，以塞忠谏之路也。宫中府中，俱为一体，陟罚臧否，不宜异同。若有作奸犯科及为忠善者，宜付有司论其刑赏，以昭陛下平明之理，不宜偏私，使内外异法也。侍中、侍郎郭攸之、费祎、董允等，此皆良实，志虑忠纯，是以先帝简拔以遗陛下。愚以为宫中之事，事无大小，悉以咨之，然后施行，必能裨补阙漏，有所广益。将军向宠，性行淑均，晓畅军事，试用于昔日，先帝称之曰能，是以众议举宠为督。愚以为营中之事，悉以咨之，必能使行阵和睦，优劣得所。亲贤臣，远小人，此先汉所以兴隆也；亲小人，远贤臣，此后汉所以倾颓也。先帝在时，每与臣论此事，未尝不叹息痛恨于桓、灵也。侍中、尚书、长史、参军，此悉贞良死节之臣，愿陛下亲之信之，则汉室之隆，可计日而待也。臣本布衣，躬耕于南阳，苟全性命于乱世，不求闻达于诸侯。先帝不以臣卑鄙，猥自枉屈，三顾臣于草庐之中，咨臣以当世之事，由是感激，遂许先帝以驱驰。后值倾覆，受任于败军之际，奉命于危难之间，尔来二十有一年矣。先帝知臣谨慎，故临崩寄臣以大事也。受命以来，夙夜忧叹，恐托付不效，以伤先帝之明，故五月渡泸，深入不毛。今南方已定，兵甲已足，当奖率三军，北定中原，庶竭驽钝，攘除奸凶，兴复汉室，还于旧都。此臣所以报先帝而忠陛下之职分也。至于斟酌损益，进尽忠言，则攸之、祎、允之任也。愿陛下托臣以讨贼兴复之效，不效，则治臣之罪，以告先帝之灵。若无兴德之言，则责攸之、祎、允等之慢，以彰其咎；陛下亦宜自谋，以咨诹善道，察纳雅言。深追先帝遗诏，臣不胜受恩感激。今当远离，临表涕零，不知所言\",\n  \"groupid\":0,\n  \"atUser\":0,\n  \"replayInfo\":null\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendMsg&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendMsg",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取好友列表",
+      "request": {
+        "description": "获取好友列表\n返回json中 StartIndex == Friend_count 说明拉取好友列表完毕 否则 传入StartIndex 继续请求",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"StartIndex\":0\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=GetQQUserList&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "GetQQUserList",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送好友语音消息",
+      "request": {
+        "description": "{\"toUser\":QQ号或群Group🆔,\"sendToType\":1,\"sendMsgType\":\"VoiceMsg\",\"content\":\"\",\"groupid\":0,\"atUser\":0,\"voiceUrl\":\"音频Url网络地址\",\"voiceBase64Buf\":\"经过base64的音频buf\"}音频大小控制在1m voiceUrl 和voiceBase64Buf 二选一",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"toUser\":123456789,\n  \"sendToType\":1,\n  \"sendMsgType\":\"VoiceMsg\",\n  \"content\":\"\",\n  \"groupid\":0,\n  \"atUser\":0,\n  \"voiceUrl\":\"http://grouptalk.c2c.qq.com/?ver=0&rkey=3062020101045b305902010102010102041fdef8ae042439416931554e5142585a78545558475261667950504538536173545f4e3275356d77435202045dca23b1041f0000000866696c6574797065000000013100000005636f64656300000001310400&filetype=1&voice_codec=1\",\n  \"voiceBase64Buf\":\"\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendMsg&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendMsg",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送好友图片消息",
+      "request": {
+        "description": "{\"toUser\":QQ号或群Group🆔,\"sendToType\":1,\"sendMsgType\":\"VoiceMsg\",\"content\":\"123\",\"groupid\":0,\"atUser\":0,\"picUrl\":\"图片Url网络地址\",\"picBase64Buf\":\"经过base64的图片buf\",\"fileMd5\":\"经过base64处理过\"}图片大小控制在1m picUrl 和picBase64Buf  fileMd5 3选一 优先处理fileMd5字段",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"toUser\":123456789,\n  \"sendToType\":1,\n  \"sendMsgType\":\"PicMsg\",\n  \"content\":\"12313\",\n  \"groupid\":0,\n  \"atUser\":0,\n  \"picUrl\":\"http://gchat.qpic.cn/gchatpic_new/304980169/636617867-2534335053-8E6B948D1E7A4F96DB5F9C4A6050FB02/0?vuin=123456789&term=255&pictype=0\",\n  \"picBase64Buf\":\"\",\n  \"fileMd5\":\"\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendMsg&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendMsg",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "QQ群功能包加群拉人..",
+      "request": {
+        "description": "添加群组 新号老号控制好频率 ActionType =8 拉人入群  -->{\"ActionType\":8,\"GroupID\":123456,\"ActionUserID\":987654,\"Content\":\"\"}\nActionType=1 加入群聊 -->{\"ActionType\":1,\"GroupID\":123456,\"ActionUserID\":0,\"Content\":\"你好通过一下\"}\nActionType=2 退出群聊 -->{\"ActionType\":2,\"GroupID\":123456,\"ActionUserID\":0,\"Content\":\"\"}\nActionType=3 移出群聊 -->{\"ActionType\":3,\"GroupID\":123456,\"ActionUserID\":0,\"Content\":\"\"}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ActionType\":3,\n  \"GroupID\":123456789 ,\n  \"ActionUserID\":123456,\n  \"Content\":\"你好通过一下\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=GroupMgr&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "GroupMgr",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取当前集群Cluster信息",
+      "request": {
+        "description": "",
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"GroupID\":123456789,\"Content\":\"新人学习\"}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/ClusterInfo?",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "ClusterInfo"
+          ],
+          "query": []
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送群文字消息",
+      "request": {
+        "description": "{\"toUser\":QQ号或群Group🆔,\"sendToType\":2,\"sendMsgType\":\"TextMsg\",\"content\":\"你好\",\"groupid\":0,\"atUser\":QQ号,不默认为0}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"toUser\":123456789,\n  \"sendToType\":2,\n  \"sendMsgType\":\"TextMsg\",\n  \"content\":\"[ATALL()]\",\n  \"groupid\":0,\n  \"atUser\":0\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendMsg&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendMsg",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送群语音消息",
+      "request": {
+        "description": "{\"toUser\":QQ号或群Group🆔,\"sendToType\":2,\"sendMsgType\":\"VoiceMsg\",\"content\":\"\",\"groupid\":0,\"atUser\":0,\"voiceUrl\":\"音频Url网络地址\",\"voiceBase64Buf\":\"经过base64的音频buf\"}音频大小控制在1m voiceUrl 和voiceBase64Buf 二选一",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"toUser\":123456789,\n  \"sendToType\":2,\n  \"sendMsgType\":\"VoiceMsg\",\n  \"content\":\"\",\n  \"groupid\":0,\n  \"atUser\":0,\n  \"voiceUrl\":\"http://grouptalk.c2c.qq.com/?ver=0&rkey=3062020101045b305902010102010102041fdef8ae042439416931704d5142586c536d78706a6444676d61537a686d504f645853705f416873475902045dcf5627041f0000000866696c6574797065000000013100000005636f64656300000001310400&filetype=1&voice_codec=1\",\n  \"voiceBase64Buf\":\"\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendMsg&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendMsg",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送群图片消息",
+      "request": {
+        "description": "{\"toUser\":QQ号或群Group🆔,\"sendToType\":1,\"sendMsgType\":\"PicMsg\",\"content\":\"文字不为空则为图文消息否则是图片\",\"groupid\":0,\"atUser\":0,\"picUrl\":\"图片Url网络地址\",\"picBase64Buf\":\"经过base64的图片buf\",\"fileMd5\":\"经过base64处理过\"}图片大小控制在1m picUrl 和picBase64Buf 二选一 优先处理fileMd5字段",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"toUser\":123456789,\n  \"sendToType\":2,\n  \"sendMsgType\":\"PicMsg\",\n  \"content\":\"[PICFLAG]上传大图pass[表情219][GETUSERNICK(123456789)]\",\n  \"groupid\":0,\n  \"atUser\":0,\n  \"picUrl\":\"http://i0.hdslb.com/bfs/bangumi/ec463f524ec43b12f64a15450709aae8df837edc.jpg\",\n  \"picBase64Buf\":\"\",\n  \"fileMd5\":\"\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendMsg&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendMsg",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送私聊字消息",
+      "request": {
+        "description": "{\"toUser\":私聊QQ号\"sendToType\":2,\"sendMsgType\":\"TextMsg\",\"content\":\"你好\",\"groupid\":Group🆔,\"atUser\":QQ号不默认为0}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"toUser\":123456789,\n  \"sendToType\":3,\n  \"sendMsgType\":\"TextMsg\",\n  \"content\":\"你好\",\n  \"groupid\":123456789,\n  \"atUser\":0\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendMsg&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendMsg",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送私聊语音消息",
+      "request": {
+        "description": "{\"toUser\":私聊QQ号,\"sendToType\":2,\"sendMsgType\":\"VoiceMsg\",\"content\":\"\",\"groupid\":Group🆔,\"atUser\":0,\"voiceUrl\":\"音频Url网络地址\",\"voiceBase64Buf\":\"经过base64的音频buf\"}音频大小控制在1m voiceUrl 和voiceBase64Buf 二选一",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"toUser\":123456789,\n  \"sendToType\":3,\n  \"sendMsgType\":\"VoiceMsg\",\n  \"content\":\"\",\n  \"groupid\":123456789,\n  \"atUser\":0,\n  \"voiceUrl\":\"http://isure.stream.qqmusic.qq.com/C400000QAQM72uuIEZ.m4a?guid=7135428428&vkey=AC9C468669E71F6A1CB067BCE7F74DA651187E3462C344C186E55CD49C49732320D12DF2CA44E0A7C7B229FDDC01F37133066D1CF67B76CA&uin=310&fromtag=66\",\n  \"voiceBase64Buf\":\"\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendMsg&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendMsg",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送私聊图片消息",
+      "request": {
+        "description": "{\"toUser\":私聊QQ号,\"sendToType\":1,\"sendMsgType\":\"PicMsg\",\"content\":\"文字不为空则为图文消息否则是图片\",\"groupid\":Group🆔,\"atUser\":0,\"picUrl\":\"图片Url网络地址\",\"picBase64Buf\":\"经过base64的图片buf\"}图片大小控制在1m picUrl 和picBase64Buf 二选一1m",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"toUser\":123456789,\n  \"sendToType\":3,\n  \"sendMsgType\":\"PicMsg\",\n  \"content\":\"图文测试\",\n  \"groupid\":123456789,\n  \"atUser\":0,\n  \"picUrl\":\"http://gchat.qpic.cn/gchatpic_new/2384036992/547525064-2534335053-FC6A74458D480B7E86A4263689510A8D/0?vuin=123456789&term=255&pictype=0\",\n  \"picBase64Buf\":\"\",\n  \"fileMd5\":\"\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendMsg&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendMsg",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "搜索QQ群组",
+      "request": {
+        "description": "{\"Content\":\"深圳\",\"Page\":0}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Content\":\"深圳\",\n  \"Page\":0\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SearchGroup&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SearchGroup",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "账号密码登陆",
+      "request": {
+        "description": "1⃣️首次登陆 {\"User\":111111,\"PassWord\":\"222222\",\"VerityCode\":\"\",\"ClusterIP\",\"\"}\n2⃣️带验证码登陆 {\"User\":111111,\"PassWord\":\"222222\",\"VerityCode\":\"1234\",,\"ClusterIP\",\"\"} 4位字符 字母 验证码错误将会被刷新\n登陆请在30秒内完成 否则将自动释放链接",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"User\":0,\n  \"PassWord\":\"0\",\n  \"VerityCode\":\"\",\n  \"ClusterIP\":\"\",\n  \"UserSec\":\"\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/aut?",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "aut"
+          ],
+          "query": []
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取群列表",
+      "request": {
+        "description": "获取群列表\n首次请求 {\"NextToken\":\"\"} 第二次请求NextToken 请填值 返回json 中 TroopList==null 时说明拉取群列表完成",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"NextToken\":\"\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=GetGroupList&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "GetGroupList",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取群成员列表",
+      "request": {
+        "description": "获取群列表\n首次请求{\"GroupUin\":0,\"LastUin\":0}第二次请求NextToken 请填值\n返回json 中 LastUin==0 时说明拉取群成员列表完成",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"GroupUin\":570065685,\n  \"LastUin\":0\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=GetGroupUserList&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "GetGroupUserList",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "刷新Key二次登陆",
+      "request": {
+        "description": "用于刷新用户相关Session和Cookies",
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"GroupUin\":949630970,\"LastUin\":1149427004}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/RefreshKeys?qq={CurrentQQ}",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "RefreshKeys"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "查询用户等级",
+      "request": {
+        "description": "Fuin为要查询的QQ号",
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"GroupUin\":949630970,\"LastUin\":1149427004}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/GetLevelInfo?qq={CurrentQQ}&fuin={CurrentQQ}",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "GetLevelInfo"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "fuin",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "测试赞",
+      "request": {
+        "description": "{\"Uid\":0,\"Fid\":0} fid 需要被赞的QQ Uid 触发动作的QQ号 详情看Lua代码",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"UserID\":123456789\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=QQZan&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "QQZan",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取钱包余额相关Key",
+      "request": {
+        "description": "",
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"Uid\":0,\"Fid\":0}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=GetBalance&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "GetBalance",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送群专属红包",
+      "request": {
+        "description": "{\"RevGroupid\":123456789,\"RecvUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"测试标题\",\"Skinid\":1435,\"RecvType\":3,\"RedType\":6}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RevGroupid\":123456789,\n  \"RecvUid\":123456789,\n  \"Amount\":1,\n  \"Paypass\":\"123456\",\n  \"TotalNum\":1,\n  \"Wishing\":\"linux\",\n  \"Skinid\":1435,\n  \"RecvType\":3,\n  \"RedType\":6\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendSingleRed&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendSingleRed",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "转账",
+      "request": {
+        "description": "{\"TransferUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\"}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"TransferUid\":123456789,\n  \"Amount\":1,\n  \"Paypass\":\"123456\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=Transfer&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "Transfer",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送QQ空间口令红包",
+      "request": {
+        "description": "hb_type=3 密码红包\nhb_type=2 设置问题\nhb_type=1 口令红包{\"Hb_type\":1,\"Total_num\":1,\"Amount\":1,\"Content\":\"猜猜看\",\"Answer\":\"\",\"Paypass\":\"123456\"}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Hb_type\":1,\n  \"Total_num\":1,\n  \"Amount\":1,\n  \"Content\":\"猜猜看\",\n  \"Answer\":\"\",\n  \"Paypass\":\"123456\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendQzoneRed&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendQzoneRed",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送QQ空间密码红包",
+      "request": {
+        "description": "hb_type=3 密码红包\nhb_type=2 设置问题\nhb_type=1 口令红包{\"Hb_type\":1,\"Total_num\":1,\"Amount\":1,\"Content\":\"猜猜看\",\"Answer\":\"\",\"Paypass\":\"123456\"}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Hb_type\":3,\n  \"Total_num\":1,\n  \"Amount\":1,\n  \"Content\":\"猜猜看\",\n  \"Answer\":\"我是密码\",\n  \"Paypass\":\"123456\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendQzoneRed&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendQzoneRed",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送QQ空间问题红包",
+      "request": {
+        "description": "hb_type=3 密码红包\nhb_type=2 设置问题\nhb_type=1 口令红包{\"Hb_type\":1,\"Total_num\":1,\"Amount\":1,\"Content\":\"猜猜看\",\"Answer\":\"\",\"Paypass\":\"123456\"}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Hb_type\":2,\n  \"Total_num\":1,\n  \"Amount\":1,\n  \"Content\":\"我是问题?\",\n  \"Answer\":\"\",\n  \"Paypass\":\"123456\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendQzoneRed&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendQzoneRed",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "添加QQ好友",
+      "request": {
+        "description": "添加好友 新号老号控制好频率  AddFromSource--来源2011 空间2020 QQ搜索 2004群组 2005讨论组",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"AddUserUid\":123456789,\n  \"FromGroupID\":123456789,\n  \"AddFromSource\":2004,\n  \"Content\":\"加好友，互助浇水\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=AddQQUser&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "AddQQUser",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送QQ空间图文",
+      "request": {
+        "description": "{\"RevGroupid\":123456789,\"SingleUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\"}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"DeviceType\":\"iPod5,1\",\n  \"Content\":\"test \",\n  \"PicUrl\":[\n    \"http://imgcache.qq.com/ac/qqweather/image/2020/6/27.png?ptype=lunar\"]\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/QzoneNewService/Publish?qq={CurrentQQ}",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "QzoneNewService",
+            "Publish"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "全局Log",
+      "request": {
+        "description": "{\"ConsoleLevel\":-1,\"FileLevel\":3}\nConsoleLevel -1关闭所有输出 8 开启所有输出\nFileLevel 3 只输出错误日志到文件 8不输出任何日志文件",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ConsoleLevel\":8,\n  \"FileLevel\":3\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/Log?",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "Log"
+          ],
+          "query": []
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取登陆二维码",
+      "request": {
+        "description": "",
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"ConsoleLevel\":8,\"FileLevel\":3}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/Login/GetQRcode?",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "Login",
+            "GetQRcode"
+          ],
+          "query": []
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送群拼手气红包",
+      "request": {
+        "description": "{\"RevGroupid\":0,\"RecvUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"测试标题\",\"Skinid\":1435,\"RecvType\":3,\"RedType\":0}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RevGroupid\":123456789,\n  \"RecvUid\":0,\n  \"Amount\":1,\n  \"Paypass\":\"123456\",\n  \"TotalNum\":1,\n  \"Wishing\":\"拼手气红包\",\n  \"Skinid\":1435,\n  \"RecvType\":3,\n  \"RedType\":0\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendSingleRed&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendSingleRed",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送群普通红包",
+      "request": {
+        "description": "{\"RevGroupid\":123456789,\"RecvUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"测试标题\",\"Skinid\":1435,\"RecvType\":3,\"RedType\":1}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RevGroupid\":123456789,\n  \"RecvUid\":123456789,\n  \"Amount\":4,\n  \"Paypass\":\"123456\",\n  \"TotalNum\":2,\n  \"Wishing\":\"普通红包\",\n  \"Skinid\":1435,\n  \"RecvType\":3,\n  \"RedType\":1\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendSingleRed&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendSingleRed",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送群口令红包",
+      "request": {
+        "description": "{\"RevGroupid\":123456789,\"RecvUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"测试标题\",\"Skinid\":1435,\"RecvType\":3,\"RedType\":2}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RevGroupid\":123456789,\n  \"RecvUid\":123456789,\n  \"Amount\":2,\n  \"Paypass\":\"123456\",\n  \"TotalNum\":2,\n  \"Wishing\":\"LinuxQQ\",\n  \"Skinid\":1435,\n  \"RecvType\":3,\n  \"RedType\":2\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendSingleRed&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendSingleRed",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送群语音红包",
+      "request": {
+        "description": "{\"RevGroupid\":123456789,\"RecvUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"测试标题\",\"Skinid\":1435,\"RecvType\":3,\"RedType\":3}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RevGroupid\":123456789,\n  \"RecvUid\":123456789,\n  \"Amount\":4,\n  \"Paypass\":\"123456\",\n  \"TotalNum\":2,\n  \"Wishing\":\"语音红包\",\n  \"Skinid\":1435,\n  \"RecvType\":3,\n  \"RedType\":3\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendSingleRed&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendSingleRed",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送群表情红包",
+      "request": {
+        "description": "{\"RevGroupid\":123456789,\"RecvUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"测试标题\",\"Skinid\":1365,\"RecvType\":3,\"RedType\":4}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RevGroupid\":123456789,\n  \"RecvUid\":123456789,\n  \"Amount\":4,\n  \"Paypass\":\"123456\",\n  \"TotalNum\":2,\n  \"Wishing\":\"表情红包\",\n  \"Skinid\":1435,\n  \"RecvType\":3,\n  \"RedType\":4\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendSingleRed&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendSingleRed",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送群成语红包",
+      "request": {
+        "description": "{\"RevGroupid\":123456789,\"RecvUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"一个顶俩\",\"Skinid\":1365,\"RecvType\":3,\"RedType\":5}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RevGroupid\":123456789,\n  \"RecvUid\":123456789,\n  \"Amount\":4,\n  \"Paypass\":\"123456\",\n  \"TotalNum\":2,\n  \"Wishing\":\"一个顶俩\",\n  \"Skinid\":1435,\n  \"RecvType\":3,\n  \"RedType\":5\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendSingleRed&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendSingleRed",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送个人普通红包",
+      "request": {
+        "description": "{\"RevGroupid\":123456789,\"RecvUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"测试标题\",\"Skinid\":1435,\"RecvType\":1,\"RedType\":1}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RevGroupid\":123456789,\n  \"RecvUid\":123456789,\n  \"Amount\":1,\n  \"Paypass\":\"123456\",\n  \"TotalNum\":1,\n  \"Wishing\":\"测试标题\",\n  \"Skinid\":1435,\n  \"RecvType\":1,\n  \"RedType\":1\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendSingleRed&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendSingleRed",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送个人口令红包",
+      "request": {
+        "description": "{\"RevGroupid\":123456789,\"RecvUid\":123456789,\"Amount\":1,\"Paypass\":\"123456\",\"TotalNum\":1,\"Wishing\":\"测试标题\",\"Skinid\":1435,\"RecvType\":1,\"RedType\":2}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RevGroupid\":123456789,\n  \"RecvUid\":123456789,\n  \"Amount\":4,\n  \"Paypass\":\"123456\",\n  \"TotalNum\":2,\n  \"Wishing\":\"测试标题\",\n  \"Skinid\":1435,\n  \"RecvType\":1,\n  \"RedType\":2\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendSingleRed&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendSingleRed",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "撤回群成员消息",
+      "request": {
+        "description": "{\"GroupID\":0,\"MsgSeq\":0,\"MsgRandom\":0}参数来自于 lua  ReceiveGroupMsg  事件  data 数据 data.MsgSeq, data.MsgRandom 可撤回自己发的消息 或管理员权限撤回群成员消息",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"GroupID\":123456789,\n  \"MsgSeq\":3981,\n  \"MsgRandom\":2135872681\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=RevokeMsg&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "RevokeMsg",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "禁言群成员或全员禁言",
+      "request": {
+        "description": "ShutUpType==0 禁言群成员  {\"ShutUpType\":0,\"GroupID\":群ID,\"ShutUid\":被禁言UID,\"ShutTime\":44640(禁言时间)} 禁言时间单位为分钟 ShutTime=0 取消禁言\nShutUpType==1 全员禁言  ShutUid=15 全员禁言 ShutUid=0 关闭全员禁言 {\"ShutUpType\":1,\"GroupID\":123456789,\"ShutUid\":0,\"ShutTime\":0}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ShutUpType\":1,\n  \"GroupID\":123456789,\n  \"ShutUid\":0,\n  \"ShutTime\":0\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=ShutUp&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "ShutUp",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "设置群公告",
+      "request": {
+        "description": "{\"GroupID\":群ID,\"Title\":\"可🈳️\",\"Text\":\"描述\",\"Pinned\":0,\"Type\":20}\n例子\nPinned 是否置顶 1置顶0不置顶\nType 是否发送新成员 0 不发送20 发送\n{\"GroupID\":123456789,\"Title\":\"1\",\"Text\":\"1\",\"Pinned\":0,\"Type\":20}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"GroupID\":123456789,\n  \"Title\":\"1\",\n  \"Text\":\"1\",\n  \"Pinned\":0,\n  \"Type\":20\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/Group/Announce?qq={CurrentQQ}",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "Group",
+            "Announce"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "回复类型消息",
+      "request": {
+        "description": "",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"toUser\":901924844,\n  \"sendToType\":2,\n  \"sendMsgType\":\"ReplayMsg\",\n  \"content\":\"数据统计1\",\n  \"groupid\":0,\n  \"atUser\":0,\n  \"replayInfo\":{\n    \"MsgSeq\":449,\n    \"MsgTime\":1571195939,\n    \"UserID\":123456789,\n    \"RawContent\":\"回复测试\"\n  }\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendMsg&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendMsg",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "退出指定QQ",
+      "request": {
+        "description": "{\"Flag\":false}不删除用户配置文件 true 删除用户配置文件",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Flag\":false\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=LogOut&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "LogOut",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取QQ相关ck",
+      "request": {
+        "description": "{\"Flag\":false}",
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"Flag\":false}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=GetUserCook&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "GetUserCook",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "处理好友请求",
+      "request": {
+        "description": "请求参数来自 WebScoket的推送\n --Action 1忽略2同意3拒绝\n{\"CurrentPacket\":{\"WebConnId\":\"fi4LFS7_uy8ORrKDQN5Z\",\"Data\":{\"EventData\":{\"UserID\":103259869,\"FromType\":2004,\"Field_9\":1571036852000000,\"Content\":\"收到好友请求 内容我是QQ大冰来源来自QQ群\",\"FromGroupId\":123456789,\"FromGroupName\":\"IOTQQ交流群\",\"Action\":2},\"EventMsg\":{\"FromUin\":103259869,\"ToUin\":123456789,\"MsgType\":\"ON_EVENT_FRIEND_ADDED\",\"Content\":\"收到好友请求 内容我是QQ大冰来源来自QQ群\",\"RedBaginfo\":null},\"EventName\":\"ON_EVENT_FRIEND_ADD\"}},\"CurrentQQ\":123456789}\n",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"UserID\":103259869,\n  \"FromType\":2004,\n  \"Field_9\":1571036852000000,\n  \"Content\":\"收到好友请求 内容我是QQ大冰来源来自QQ群\",\n  \"FromGroupId\":123456789,\n  \"FromGroupName\":\"IOTQQ交流群\",\n  \"Action\":2\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=DealFriend&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "DealFriend",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "打开RED包",
+      "request": {
+        "description": "",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Tittle\":\"大吉大利\",\n  \"Des\":\"赶紧点击拆开吧\",\n  \"RedType\":6,\n  \"Listid\":\"10000448011910163700109887578400\",\n  \"Authkey\":\"7ed906141524a1edde40714fc8c8510005\",\n  \"Channel\":1,\n  \"StingIndex\":\"NmE4YzQ3ZjgwOGJkNjc3ODAwODUxMzlhM2VjMmFhZTE=\",\n  \"Token_17_2\":\"fZXIb1y5rilopb5j/yImCC0EQNeMDxRe2gtDEOMTFG0=\",\n  \"Token_17_3\":\"YjU0NmVjYTdjY2JhODMwYTljY2EwZjA5M2NhNDZhMGM=\",\n  \"FromUin\":123456789,\n  \"FromType\":1\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=ModifyGroupCard&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "ModifyGroupCard",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "处理群邀请",
+      "request": {
+        "description": "请求参数来自 WebScoket的推送\n--11 agree 14 忽略 21 disagree\n{\"CurrentPacket\":{\"WebConnId\":\"3x1VZ6DlCiNQP1khIB43\",\"Data\":{\"EventData\":{\"Seq\":1570980892762275,\"Type\":1,\"MsgTypeStr\":\"邀请加群\",\"Who\":123456789,\"WhoName\":\"QQ棒棒冰\",\"MsgStatusStr\":\"\",\"Flag_7\":8192,\"Flag_8\":512,\"GroupId\":570065685,\"GroupName\":\"Rust编程语言社区3群\",\"InviteUin\":123456789,\"InviteName\":\"Kar98k\",\"Action\":0},\"EventMsg\":{\"FromUin\":570065685,\"ToUin\":123456789,\"MsgType\":\"ON_EVENT_GROUP_INVITED\",\"Content\":\"邀请加群\",\"RedBaginfo\":null},\"EventName\":\"ON_EVENT_GROUP_INVITED\"}},\"CurrentQQ\":123456789}\n   ",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Seq\":1570980892762275,\n  \"Type\":1,\n  \"MsgTypeStr\":\"邀请加群\",\n  \"Who\":123456789,\n  \"WhoName\":\"QQ棒棒冰\",\n  \"MsgStatusStr\":\"\",\n  \"Flag_7\":8192,\n  \"Flag_8\":512,\n  \"GroupId\":570065685,\n  \"GroupName\":\"Rust编程语言社区3群\",\n  \"InviteUin\":123456789,\n  \"InviteName\":\"Kar98k\",\n  \"Action\":0\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=AnswerInviteGroup&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "AnswerInviteGroup",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "修改群名片",
+      "request": {
+        "description": "{\"GroupID\":123456789,\"UserID\":123456789,\"NewNick\":\"测试名片999999999\"}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"GroupID\":123456789,\n  \"UserID\":123456789,\n  \"NewNick\":\"8888测试名片999999999\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=ModifyGroupCard&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "ModifyGroupCard",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "设置头衔",
+      "request": {
+        "description": "有频率限制 \nNewTitle =\"\" 则取消头衔\n{\"GroupID\":123456789,\"UserID\":123456789,\"NewTitle\":\"666669\"}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"GroupID\":123456789,\n  \"UserID\":123456789,\n  \"NewTitle\":\"996\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SetUniqueTitle&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SetUniqueTitle",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "获取任意用户信息昵称头像等",
+      "request": {
+        "description": "有频率限制 \nNewTitle =\"\" 则取消头衔\n{\"GroupID\":123456789,\"UserID\":123456789,\"NewTitle\":\"666669\"}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"UserID\":123456789\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=GetUserInfo&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "GetUserInfo",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "通用Call搜索群组",
+      "request": {
+        "description": "请求参数来自 WebScoket的推送\n --Action 1忽略2同意3拒绝\n{\"CurrentPacket\":{\"WebConnId\":\"fi4LFS7_uy8ORrKDQN5Z\",\"Data\":{\"EventData\":{\"UserID\":103259869,\"FromType\":2004,\"Field_9\":1571036852000000,\"Content\":\"收到好友请求 内容我是QQ大冰来源来自QQ群\",\"FromGroupId\":123456789,\"FromGroupName\":\"IOTQQ交流群\",\"Action\":2},\"EventMsg\":{\"FromUin\":103259869,\"ToUin\":123456789,\"MsgType\":\"ON_EVENT_FRIEND_ADDED\",\"Content\":\"收到好友请求 内容我是QQ大冰来源来自QQ群\",\"RedBaginfo\":null},\"EventName\":\"ON_EVENT_FRIEND_ADD\"}},\"CurrentQQ\":123456789}\n",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Content\":\"深圳\",\n  \"Page\":0\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=OidbSvc.0x8ba_31&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "OidbSvc.0x8ba_31",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "通用Call修改群名片",
+      "request": {
+        "description": "请求参数来自 WebScoket的推送\n --Action 1忽略2同意3拒绝\n{\"CurrentPacket\":{\"WebConnId\":\"fi4LFS7_uy8ORrKDQN5Z\",\"Data\":{\"EventData\":{\"UserID\":103259869,\"FromType\":2004,\"Field_9\":1571036852000000,\"Content\":\"收到好友请求 内容我是QQ大冰来源来自QQ群\",\"FromGroupId\":123456789,\"FromGroupName\":\"IOTQQ交流群\",\"Action\":2},\"EventMsg\":{\"FromUin\":103259869,\"ToUin\":123456789,\"MsgType\":\"ON_EVENT_FRIEND_ADDED\",\"Content\":\"收到好友请求 内容我是QQ大冰来源来自QQ群\",\"RedBaginfo\":null},\"EventName\":\"ON_EVENT_FRIEND_ADD\"}},\"CurrentQQ\":123456789}\n",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"GroupID\":123456789,\n  \"UserID\":123456789,\n  \"NewNick\":\"0000001\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=friendlist.ModifyGroupCardReq&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "friendlist.ModifyGroupCardReq",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "通用Call获取好友列表",
+      "request": {
+        "description": "",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"StartIndex\":0\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=friendlist.GetFriendListReq&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "friendlist.GetFriendListReq",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "通用Call群列表",
+      "request": {
+        "description": "",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"NextToken\":\"AwAAAAD/////ADI=\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=friendlist.GetTroopListReqV2&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "friendlist.GetTroopListReqV2",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "通用Call群成员",
+      "request": {
+        "description": "",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"GroupUin\":397520425,\n  \"LastUin\":0\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=friendlist.GetTroopMemberListReq&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "friendlist.GetTroopMemberListReq",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "通用Call设置群头衔",
+      "request": {
+        "description": "",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"GroupID\":123456789,\n  \"UserID\":123456789,\n  \"NewTitle\":\"997\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=OidbSvc.0x8fc_2&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "OidbSvc.0x8fc_2",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "通用Call全群禁言",
+      "request": {
+        "description": "{\"GroupID\":123456789,\"Switch\":0} Switch=0关闭全群禁言 Switch=15开启全群禁言",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"GroupID\":123456789,\n  \"Switch\":0\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=OidbSvc.0x89a_0&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "OidbSvc.0x89a_0",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "通用Call群成员禁言",
+      "request": {
+        "description": "{\"GroupID\":123456789,\"ShutUpUserID\":1234567,\"ShutTime\":0} ShutTime单位为分钟 0 取消禁言",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"GroupID\":123456789,\"ShutUpUserID\":6773509,\"ShutTime\":0}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=OidbSvc.0x570_8&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "OidbSvc.0x570_8",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "通用Call点赞包",
+      "request": {
+        "description": "",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"UserID\":123456789\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=OidbSvc.0x7e5_4&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "OidbSvc.0x7e5_4",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "通用Call撤回消息",
+      "request": {
+        "description": "",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"GroupID\":123456789,\n  \"MsgSeq\":3747,\n  \"MsgRandom\":1786189853\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=PbMessageSvc.PbMsgWithDraw&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "PbMessageSvc.PbMsgWithDraw",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "通用Call获取短视频Url",
+      "request": {
+        "description": "",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"GroupID\":123456789,\"VideoUrl\":\"MzA1MTAyMDEwMDA0MzYzMDM0MDIwMTAwMDIwNDAwYTk0NDMzMDIwMzdhMWFmZDAyMDRhNzNlNWI2NTAyMDQ1ZGU5YjcxMzA0MTA0MzZkN2M1N2NjZWIxZjYzZDE4OTY1NDM2MDZiOTEwMjAyMDM3YTFkYjkwMjAxMDAwNDE0MDAwMDAwMDg2NjY5NmM2NTc0Nzk3MDY1MDAwMDAwMDQzMTMwMzAzMw==\",\"VideoMd5\":\"Q218V8zrH2PRiWVDYGuRAg==\"}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=PttCenterSvr.ShortVideoDownReq&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "PttCenterSvr.ShortVideoDownReq",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送群小视频(转发 不支持上传)消息",
+      "request": {
+        "description": "{\"toUser\":QQ号或群Group🆔,\"sendToType\":2,\"sendMsgType\":\"TextMsg\",\"content\":\"你好\",\"groupid\":0,\"atUser\":QQ号,不默认为0}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"toUser\":123456789,\n  \"sendToType\":1,\n  \"sendMsgType\":\"ForwordMsg\",\n  \"content\":\"\",\n  \"groupid\":123456789,\n  \"atUser\":0,\n  \"forwordBuf\":\"CqYBMzA1MTAyMDEwMDA0MzYzMDM0MDIwMTAwMDIwNDY1NWI2MTM2MDIwMzdhMTNmNTAyMDQxOTRjOTc3YjAyMDQ1ZGViNGVjMTA0MTBhZTE0Zjc0YjUwZjMzZTZkOTIzZDcxODUxNTUyN2ZjZjAyMDM3YTFhZmQwMjAxMDAwNDE0MDAwMDAwMDg2NjY5NmM2NTc0Nzk3MDY1MDAwMDAwMDQzMTMwMzAzMxIQrhT3S1DzPm2SPXGFFVJ/zxoIdGVzdC5tcDQgAigBMIOyLjjQBUCACkoQeLU4KcV/8OgD0dcyur4jbVIGY2FtZXJhWLajCGABeACQAQCYAQA=\",\n  \"forwordField\":19\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendMsg&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendMsg",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "发送大表情",
+      "request": {
+        "description": "{\"toUser\":QQ号或群Group🆔,\"sendToType\":2,\"sendMsgType\":\"TextMsg\",\"content\":\"你好\",\"groupid\":0,\"atUser\":QQ号,不默认为0}",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"toUser\":123456789,\n  \"sendToType\":2,\n  \"sendMsgType\":\"ForwordMsg\",\n  \"content\":\"\",\n  \"groupid\":0,\n  \"atUser\":0,\n  \"forwordBuf\":\"Cghb5Y2W6JCMXRAGGAEiEPT8daec5EJJy8A32ytRrDsogL4MMAM6EDJjNjI3NWIzMmM2M2EwMTlIAFDIAVjIAWoSCgYIrAIQrAIKBgjIARDIAUAB\",\n  \"forwordField\":6\n}"
+        },
+        "url": {
+          "raw": "{{host}}/v1/LuaApiCaller?qq={CurrentQQ}&funcname=SendMsg&timeout=10",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "v1",
+            "LuaApiCaller"
+          ],
+          "query": [
+            {
+              "key": "qq",
+              "value": "{{CurrentQQ}}",
+              "disabled": false
+            },
+            {
+              "key": "funcname",
+              "value": "SendMsg",
+              "disabled": false
+            },
+            {
+              "key": "timeout",
+              "value": "10",
+              "disabled": false
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
