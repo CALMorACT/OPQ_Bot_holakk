@@ -38,23 +38,23 @@ def disconnect():
 
 
 if __name__ == '__main__':
-    # try:
-    #     sio.connect("ws://47.115.62.125:1133", transports='websocket')
-    #     print('my sid is', sio.sid)
-    # except BaseException as e:
-    #     print(e)
-    temp = homework_info.HomeworkInfo("有关王天行的作业", "3", "2020-10-10 2:00:00", 2646677495)
-    temp.set_usr({"2646677495": "李昊"})
-    setting_config.homework_list.append(temp)
-    test2 = {'CurrentPacket': {'WebConnId': '904sYQTwPNrE2FinndDe',
-                               'Data': {'FromUin': 2646677495, 'ToUin': 2075351675, 'MsgType': 'FriendFileMsg',
-                                        'MsgSeq': 9655,
-                                        'Content': '{"FileID":"f717c19df95b09df4de35ea1c783c368_23d8cadc-0529-11eb-b621-eb11aabdb12e","FileName":"test.docx","FileSize":12159,"Tips":"[好友文件]"}',
-                                        'RedBaginfo': None}}, 'CurrentQQ': 2075351675}
-    test1 = {'CurrentPacket': {'WebConnId': '904sYQTwPNrE2FinndDe',
-                               'Data': {'FromUin': 2646677495, 'ToUin': 2075351675, 'MsgType': 'FriendFileMsg',
-                                        'MsgSeq': 9655,
-                                        'Content': '交形教作业',
-                                        'RedBaginfo': None}}, 'CurrentQQ': 2075351675}
-    submit_homework.start_collect_one(test1, "形教")
-    submit_homework.get_one_homework(test2, "形教")
+    try:
+        sio.connect("ws://47.115.62.125:1133", transports='websocket')
+        print('my sid is', sio.sid)
+    except BaseException as e:
+        print(e)
+    # temp = homework_info.HomeworkInfo("有关王天行的作业", "3", "2020-10-10 2:00:00", 2646677495)
+    # temp.set_usr({"2646677495": "李昊"})
+    # setting_config.homework_list.append(temp)
+    # test2 = {'CurrentPacket': {'WebConnId': '904sYQTwPNrE2FinndDe',
+    #                            'Data': {'FromUin': 2646677495, 'ToUin': 2075351675, 'MsgType': 'FriendFileMsg',
+    #                                     'MsgSeq': 9655,
+    #                                     'Content': '{"FileID":"f717c19df95b09df4de35ea1c783c368_23d8cadc-0529-11eb-b621-eb11aabdb12e","FileName":"test.docx","FileSize":12159,"Tips":"[好友文件]"}',
+    #                                     'RedBaginfo': None}}, 'CurrentQQ': 2075351675}
+    # test1 = {'CurrentPacket': {'WebConnId': '904sYQTwPNrE2FinndDe',
+    #                            'Data': {'FromUin': 2646677495, 'ToUin': 2075351675, 'MsgType': 'FriendFileMsg',
+    #                                     'MsgSeq': 9655,
+    #                                     'Content': '交形教作业',
+    #                                     'RedBaginfo': None}}, 'CurrentQQ': 2075351675}
+    # submit_homework.start_collect_one(test1, "形教")
+    # submit_homework.get_one_homework(test2, "形教")
