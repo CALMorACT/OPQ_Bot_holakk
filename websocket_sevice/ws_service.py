@@ -1,5 +1,6 @@
 import requests
 import time
+import json
 
 
 def SendMsg(host: str, current_qq: int, send_content: str, to_user: int):
@@ -51,6 +52,24 @@ def GetFileUrl(host: str, current_qq: int, file_id: str):
     headers = {'Content-Type': 'application/json'}
     try:
         response = requests.request("POST", url, headers=headers, data=payload.encode('utf-8'))
+        return response
+    except BaseException as e:
+        print(e)
+        return 1
+
+
+def send_private_msg_v2(host: str, current_qq: int, to_usr_id: int, group_id: int, send_msg: str):
+    time.sleep(1)
+    url = "%s/v1/LuaApiCaller?qq=%d&funcname=SendMsgV2" % (host, current_qq)
+    payload = {"ToUserUid": to_usr_id, "GroupID": group_id, "SendToType": 3, "SendMsgType": "TextMsg",
+               "Content": send_msg}
+    try:
+        data = json.dumps(payload)
+        headers = {
+            'Content-Type': 'application/json'
+        }
+
+        response = requests.request("POST", url, headers=headers, data=data)
         return response
     except BaseException as e:
         print(e)
