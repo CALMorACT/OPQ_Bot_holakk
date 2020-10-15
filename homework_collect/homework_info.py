@@ -33,6 +33,9 @@ class HomeworkInfo:
         self.homework_usr = usr_dict
         self.homework_no_finish_usr = self.homework_usr
 
+    def move_no_finish_usr(self, usr_qq: int):
+        self.homework_no_finish_usr.pop(usr_qq)
+
     def __str__(self):
         return self.homework_name + "\\r第" + self.homework_times + "次作业\\r" + str(
             time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(self.homework_ddl))) + "\\r" + "共有" + str(

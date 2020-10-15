@@ -8,13 +8,14 @@ submit_queue = queue.Queue(100)
 
 def start_collect_one(msg: dict, homework_type: str):
     if msg['CurrentPacket']['Data']['Content'] == "交" + homework_type + "作业":
-        if str(msg['CurrentPacket']['Data']['FromUin']) in setting_config.homework_list[0].homework_no_finish_usr:
+        if msg['CurrentPacket']['Data']['FromUin'] in setting_config.homework_list[0].homework_no_finish_usr:
             data = {
                 "User": msg['CurrentPacket']['Data']['FromUin'],
                 "msg": "submit_homework",
                 "type": homework_type
             }
             submit_queue.put(data)
+            ws_service.SendMsg(setting_config.host, setting_config.current_qq, "请发送文件", data['User'])
 
 
 def get_one_homework(msg: dict, homework_type: str):
@@ -34,5 +35,8 @@ def get_one_homework(msg: dict, homework_type: str):
         if if_have:
             file_info = json.loads(msg['CurrentPacket']['Data']['Content'])
             fun_save = setting_config.homework_list[0].homework_save_and_zip
-            fun_save.save_XinJiao(file_info["FileID"], file_info["FileName"],
-                                  setting_config.homework_list[0].homework_usr[str(data['User'])])
+            save_result = fun_save.save_XinJiao(file_info["FileID"], file_info["FileName"],
+                                                setting_config.homework_list[0].homework_usr[data['User']])
+            if save_result:
+                ws_service.SendMsg(setting_config.host, setting_config.current_qq, "已收到，感谢使用", data['User'])
+                setting_config.homework_list[0].move_no_finish_usr(data['User'])

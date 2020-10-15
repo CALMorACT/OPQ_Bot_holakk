@@ -28,6 +28,7 @@ class SaveAndZip:
         response = ws_service.GetFileUrl(setting_config.host, setting_config.current_qq, file_id)
         results = json.loads(response.text.encode('utf8'))
         wget.download(results["Url"], out=file_save_path)
+        return os.path.exists(file_save_path)
 
     # 对某一次作业进行压缩
     def zip_file(self):

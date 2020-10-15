@@ -2,6 +2,7 @@ import socketio
 import time
 import threading
 from homework_collect import homework_collect, submit_homework, setting_config, homework_info
+from remind_daka import remind_run
 
 sio = socketio.Client()
 QQ = 2075351675
@@ -18,6 +19,7 @@ def OnGroupMsgs(msg):
 def OnFriendMsgs(msg):
     print(msg)
     homework_collect.homework_collect_main(msg, "形教")
+    remind_run.solve(msg)
 
 
 # 对一些特别的事件进行返回
@@ -39,7 +41,7 @@ def disconnect():
 
 if __name__ == '__main__':
     try:
-        sio.connect("ws://47.115.62.125:1133", transports='websocket')
+        sio.connect("http://47.115.62.125:1133", transports='websocket')
         print('my sid is', sio.sid)
     except BaseException as e:
         print(e)
