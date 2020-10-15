@@ -1,6 +1,5 @@
 import json
 import os
-import wget
 import zipfile
 
 import requests
@@ -27,7 +26,9 @@ class SaveAndZip:
         file_save_path = os.path.join(self.save_dir_path, file_name)
         response = ws_service.GetFileUrl(setting_config.host, setting_config.current_qq, file_id)
         results = json.loads(response.text.encode('utf8'))
-        wget.download(results["Url"], out=file_save_path)
+        file_response = requests.get(results["Url"])
+        with open(file_save_path, "wb+") as f:
+            f.write(file_response.content)
         return os.path.exists(file_save_path)
 
     # 对某一次作业进行压缩

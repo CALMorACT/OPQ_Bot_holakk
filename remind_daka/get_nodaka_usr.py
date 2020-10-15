@@ -25,7 +25,6 @@ import time
 from urllib.parse import urlencode
 from PIL import Image
 
-import wget
 import json
 import requests
 
@@ -43,7 +42,9 @@ class TXApiUse:
         self.sign = ""
 
     def get_pic_base64(self):
-        wget.download(self.image_url, out="temp.png")
+        pic = requests.get(self.image_url)
+        with open("temp.png", "wb+") as f:
+            f.write(pic.content)
         img = Image.open("temp.png")
         cropped = img.crop((0, 550, 200, 2640))
         cropped.save("temp.png")
