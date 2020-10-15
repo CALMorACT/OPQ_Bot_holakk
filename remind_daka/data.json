@@ -1,0 +1,216 @@
+{
+  "ret": 0,
+  "msg": "ok",
+  "data": {
+    "item_list": [
+      {
+        "item": "",
+        "itemstring": "今日人娄",
+        "itemcoord": [
+          {
+            "x": 42,
+            "y": 151,
+            "width": 156,
+            "height": 46
+          }
+        ],
+        "words": [
+          {
+            "character": "今",
+            "confidence": 0.999968
+          },
+          {
+            "character": "日",
+            "confidence": 0.987037
+          },
+          {
+            "character": "人",
+            "confidence": 0.999885
+          },
+          {
+            "character": "娄",
+            "confidence": 0.977886
+          }
+        ]
+      },
+      {
+        "item": "",
+        "itemstring": "姓名",
+        "itemcoord": [
+          {
+            "x": 54,
+            "y": 286,
+            "width": 89,
+            "height": 45
+          }
+        ],
+        "words": [
+          {
+            "character": "姓",
+            "confidence": 0.999994
+          },
+          {
+            "character": "名",
+            "confidence": 0.999798
+          }
+        ]
+      },
+      {
+        "item": "",
+        "itemstring": "郑浩龙",
+        "itemcoord": [
+          {
+            "x": 42,
+            "y": 455,
+            "width": 117,
+            "height": 40
+          }
+        ],
+        "words": [
+          {
+            "character": "郑",
+            "confidence": 0.999709
+          },
+          {
+            "character": "浩",
+            "confidence": 0.995272
+          },
+          {
+            "character": "龙",
+            "confidence": 0.998826
+          }
+        ]
+      },
+      {
+        "item": "",
+        "itemstring": "刘宇珂",
+        "itemcoord": [
+          {
+            "x": 41,
+            "y": 616,
+            "width": 117,
+            "height": 41
+          }
+        ],
+        "words": [
+          {
+            "character": "刘",
+            "confidence": 0.999925
+          },
+          {
+            "character": "宇",
+            "confidence": 0.995545
+          },
+          {
+            "character": "珂",
+            "confidence": 0.999461
+          }
+        ]
+      },
+      {
+        "item": "",
+        "itemstring": "马晓晨",
+        "itemcoord": [
+          {
+            "x": 42,
+            "y": 776,
+            "width": 117,
+            "height": 40
+          }
+        ],
+        "words": [
+          {
+            "character": "马",
+            "confidence": 0.999971
+          },
+          {
+            "character": "晓",
+            "confidence": 0.999954
+          },
+          {
+            "character": "晨",
+            "confidence": 0.999943
+          }
+        ]
+      },
+      {
+        "item": "",
+        "itemstring": "孙韵韬",
+        "itemcoord": [
+          {
+            "x": 40,
+            "y": 936,
+            "width": 118,
+            "height": 40
+          }
+        ],
+        "words": [
+          {
+            "character": "孙",
+            "confidence": 0.999995
+          },
+          {
+            "character": "韵",
+            "confidence": 0.9994
+          },
+          {
+            "character": "韬",
+            "confidence": 0.999986
+          }
+        ]
+      },
+      {
+        "item": "",
+        "itemstring": "赖洋萍",
+        "itemcoord": [
+          {
+            "x": 41,
+            "y": 1095,
+            "width": 118,
+            "height": 39
+          }
+        ],
+        "words": [
+          {
+            "character": "赖",
+            "confidence": 0.999651
+          },
+          {
+            "character": "洋",
+            "confidence": 0.999654
+          },
+          {
+            "character": "萍",
+            "confidence": 0.999991
+          }
+        ]
+      },
+      {
+        "item": "",
+        "itemstring": "骆致远",
+        "itemcoord": [
+          {
+            "x": 42,
+            "y": 1257,
+            "width": 117,
+            "height": 40
+          }
+        ],
+        "words": [
+          {
+            "character": "骆",
+            "confidence": 0.999968
+          },
+          {
+            "character": "致",
+            "confidence": 0.999991
+          },
+          {
+            "character": "远",
+            "confidence": 0.99998
+          }
+        ]
+      }
+    ]
+  }
+}
