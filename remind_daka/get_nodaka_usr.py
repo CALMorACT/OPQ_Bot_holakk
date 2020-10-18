@@ -1,21 +1,3 @@
-# from paddleocr import PaddleOCR, draw_ocr
-# from PIL import Image
-#
-# ocr = PaddleOCR()  # need to run only once to download and load model into memory
-# img_path = 'img_data/best.jpg'
-# result = ocr.ocr(img_path)
-# for line in result:
-#     print(line)
-#
-# # 显示结果
-#
-# image = Image.open(img_path).convert('RGB')
-# boxes = [line[0] for line in result]
-# txts = [line[1][0] for line in result]
-# scores = [line[1][1] for line in result]
-# im_show = draw_ocr(image, boxes, txts, scores)
-# im_show = Image.fromarray(im_show)
-# im_show.save('result.jpg')
 import hashlib
 import os
 import base64
@@ -25,7 +7,6 @@ import time
 from urllib.parse import urlencode
 from PIL import Image
 
-import re
 import json
 import requests
 
@@ -83,7 +64,6 @@ class TXApiUse:
         }
         self.get_sign(result, "zPA2BaAlSLGRXkvY")
         result['sign'] = self.sign
-        # headers = {'Content-Type': 'application/x-www-form-urlencoded'}
         return requests.request("POST", url=self.general_ocr_url, data=result)
 
 
@@ -107,13 +87,5 @@ class CleanAPIData:
             return True
 
         self.nodata_list = [item['itemstring'] for item in filter(filter_ul, self.item_list)]
-        # self.nodata_list = [re.compile('').sub('', x) for x in self.nodata_list]
         if "姓名" in self.nodata_list:
             self.nodata_list.remove("姓名")
-
-# if __name__ == '__main__':
-#     temp = TXApiUse(
-#         "http://c2cpicdw.qpic.cn/offpic_new/2075351675/2646677495-3385731726-D33EB2A6967504FFF667CF88B78A25B0/0")
-#     response = temp.get_result()
-#     clean_it = CleanAPIData(response)
-#     print(clean_it.nodata_list)

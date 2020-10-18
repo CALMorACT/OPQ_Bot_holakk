@@ -1,7 +1,7 @@
 import queue
-import time
 import json
 from . import get_nodaka_usr
+from . import remind_everyday
 from websocket_sevice import ws_service
 
 admin_queue = queue.Queue(100)
@@ -63,7 +63,7 @@ def send_nodaka(nodaka_list: list, config: dict):
                                                   config['current_qq'],
                                                   group_id=each_remind[2],
                                                   to_usr_id=each_remind[1],
-                                                  send_msg="请同学尽快打卡")
+                                                  send_msg="同学，老师那边显示你未打卡，请同学尽快打卡")
         if response.text != "" and response.status_code == 200:
             ws_service.SendMsg(config['host'], config['current_qq'], "已提醒%s" % each_remind[0], config['admin_list'][0])
 
@@ -71,16 +71,6 @@ def send_nodaka(nodaka_list: list, config: dict):
 def solve(msg):
     with open("remind_daka/config.json") as config:
         config = json.load(config)
-        if_solve(msg, config)
-        solve_nodaka(msg, config)
-
-# if __name__ == '__main__':
-#     temp2 = {'CurrentPacket': {'WebConnId': '',
-#                                'Data': {'FromUin': 2646677495, 'ToUin': 2075351675, 'MsgType': 'PicMsg',
-#                                         'MsgSeq': 39829,
-#                                         'Content': '{"FriendPic":[{"FileMd5":"cEDWKroDhDfdRklfcDJEJQ==","FileSize":338832,"Path":"/2646677495-2263803599-7040D62ABA038437DD46495F70324425","Url":"http://c2cpicdw.qpic.cn/offpic_new/2075351675/2646677495-2263803599-7040D62ABA038437DD46495F70324425/0"}],"Tips":"[好友图片]"}',
-#                                         'RedBaginfo': None}}, 'CurrentQQ': 2075351675}
-#     temp1 = {'CurrentPacket': {'WebConnId': '',
-#                                'Data': {'FromUin': 2646677495, 'ToUin': 2075351675, 'MsgType': 'TextMsg',
-#                                         'MsgSeq': 10710,
-#                                         'Content': '提醒打卡', 'RedBaginfo': None}}, 'CurrentQQ': 2075351675}
+    remind_everyday.remind_everyday(config)
+    if_solve(msg, config)
+    solve_nodaka(msg, config)
