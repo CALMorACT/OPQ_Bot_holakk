@@ -25,7 +25,7 @@ import time
 from urllib.parse import urlencode
 from PIL import Image
 
-import subprocess
+import re
 import json
 import requests
 
@@ -52,7 +52,8 @@ class TXApiUse:
         with open("temp.png", "wb") as code:
             code.write(response_download.content)
         img = Image.open("temp.png")
-        cropped = img.crop((0, 550, 200, 2640))
+        w, h = img.size
+        cropped = img.crop((0, int(h * 0.1), int(w * 0.16), int(h * 0.95)))
         cropped.save("temp.png")
         with open("temp.png", 'rb') as fileByte:
             self.pic_base64 = base64.b64encode(fileByte.read())
@@ -106,6 +107,7 @@ class CleanAPIData:
             return True
 
         self.nodata_list = [item['itemstring'] for item in filter(filter_ul, self.item_list)]
+        # self.nodata_list = [re.compile('').sub('', x) for x in self.nodata_list]
         if "姓名" in self.nodata_list:
             self.nodata_list.remove("姓名")
 
