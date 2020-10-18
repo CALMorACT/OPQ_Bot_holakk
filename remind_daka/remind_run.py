@@ -71,6 +71,6 @@ def send_nodaka(nodaka_list: list, config: dict):
 def solve(msg):
     with open("remind_daka/config.json") as config:
         config = json.load(config)
-    # remind_everyday.remind_everyday(config)
+    remind_everyday.remind_everyday(config)
     if_solve(msg, config)
     solve_nodaka(msg, config)
