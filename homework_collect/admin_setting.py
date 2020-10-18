@@ -39,7 +39,11 @@ def set_setting(msg: dict, homework_type: str, homework_index: int):
                     break
             if msg['CurrentPacket']['Data']['FromUin'] == data["User"] and \
                     data["msg"] == "start_new_homework":
-                setting_content = msg['CurrentPacket']['Data']['Content'].split('\n')
+                setting_content = []
+                if '\n' in msg['CurrentPacket']['Data']['Content']:
+                    setting_content = msg['CurrentPacket']['Data']['Content'].split('\n')
+                elif '\r' in msg['CurrentPacket']['Data']['Content']:
+                    setting_content = msg['CurrentPacket']['Data']['Content'].split('\r')
                 setting_content.pop(0)
                 setting_content.append(data["User"])
                 if data["type"] == "形教":

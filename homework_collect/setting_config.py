@@ -7,7 +7,7 @@ from websocket_sevice import ws_service
 homework_list = []
 host = "http://47.115.62.125:1133"
 current_qq = 2075351675
-group_id = 924964426
+group_id = 659523903
 admin_list = [2646677495]
 
 

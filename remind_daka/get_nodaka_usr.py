@@ -25,6 +25,7 @@ import time
 from urllib.parse import urlencode
 from PIL import Image
 
+import subprocess
 import json
 import requests
 
@@ -42,9 +43,7 @@ class TXApiUse:
         self.sign = ""
 
     def get_pic_base64(self):
-        pic = requests.get(self.image_url)
-        with open("temp.png", "wb+") as f:
-            f.write(pic.content)
+        subprocess.call(['aria2c', self.image_url, '-o', 'temp.png'])
         img = Image.open("temp.png")
         cropped = img.crop((0, 550, 200, 2640))
         cropped.save("temp.png")
@@ -101,7 +100,6 @@ class CleanAPIData:
 
         self.nodata_list = [item['itemstring'] for item in filter(filter_ul, self.item_list)]
         self.nodata_list.remove("姓名")
-
 
 # if __name__ == '__main__':
 #     temp = TXApiUse(
