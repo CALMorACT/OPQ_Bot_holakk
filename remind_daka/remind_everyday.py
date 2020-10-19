@@ -5,7 +5,7 @@ import json
 
 def remind_everyday(config: dict):
     localtime = time.localtime(time.time())
-    if localtime.tm_hour == 10 and localtime.tm_min == 00:
+    if localtime.tm_hour == 10 and localtime.tm_min == 0 and localtime.tm_sec <= 1:
         for group in config["solve_qq_group"]:
             response = ws_service.GetGroupUserList_nowait(config["host"], config["current_qq"], group)
             for usr in [(x["GroupCard"], x["MemberUin"]) for x in json.loads(response.text)["MemberList"]]:
@@ -15,3 +15,9 @@ def remind_everyday(config: dict):
                                                    group_id=json.loads(response.text)['GroupUin'],
                                                    to_usr_id=usr[1],
                                                    send_msg="请同学尽快打卡，如果打了请忽略")
+
+
+if __name__ == '__main__':
+    with open("config.json") as config:
+        config = json.load(config)
+    remind_everyday(config)
