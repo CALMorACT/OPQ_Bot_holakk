@@ -20,4 +20,5 @@ def remind_everyday(config: dict):
 if __name__ == '__main__':
     with open("config.json") as config:
         config = json.load(config)
-    remind_everyday(config)
+    while True:
+        remind_everyday(config)
