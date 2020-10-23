@@ -1,7 +1,6 @@
 import queue
 import json
 from . import get_nodaka_usr
-from . import remind_everyday
 from websocket_sevice import ws_service
 
 admin_queue = queue.Queue(100)
