@@ -16,9 +16,3 @@ def remind_everyday(config: dict):
                                                    to_usr_id=usr[1],
                                                    send_msg="请同学尽快打卡，如果打了请忽略")
                     time.sleep(3)
-
-
-if __name__ == '__main__':
-    with open("config.json") as config:
-        config = json.load(config)
-    remind_everyday(config)
