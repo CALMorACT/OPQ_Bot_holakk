@@ -5,7 +5,7 @@ import json
 from websocket_sevice import ws_service
 
 homework_list = []
-host = "http://47.115.62.125:1133"
+host = "http://127.0.0.1:1133"
 current_qq = 2075351675
 group_id = 659523903
 admin_list = [2646677495]
