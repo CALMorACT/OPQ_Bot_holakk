@@ -41,7 +41,7 @@ def disconnect():
 
 if __name__ == '__main__':
     try:
-        sio.connect("ws://127.0.0.1:1133", transports='websocket')
+        sio.connect("ws://47.115.62.125:1133", transports='websocket')
         print('my sid is', sio.sid)
     except BaseException as e:
         print(e)

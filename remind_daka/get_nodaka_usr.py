@@ -42,7 +42,7 @@ class TXApiUse:
             self.pic_base64 = base64.b64encode(fileByte.read())
         if os.path.exists("temp.png"):
             os.remove("temp.png")
-        time.sleep(1)
+        # time.sleep(1)
 
     def get_timestamp(self):
         self.timestamp = int(time.time())
@@ -71,7 +71,10 @@ class TXApiUse:
 
 class CleanAPIData:
     def __init__(self, api_response):
-        self.api_data = json.loads(api_response.text.replace("\n", ""))
+        if "\n" in api_response.text:
+            self.api_data = json.loads(api_response.text.replace("\n", ""))
+        else:
+            self.api_data = json.loads(api_response.text.replace("\r", ""))
         self.item_list = []
         self.nodata_list = []
         self.prepare_data()

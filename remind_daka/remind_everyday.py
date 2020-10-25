@@ -15,4 +15,4 @@ def remind_everyday(config: dict):
                                                    group_id=json.loads(response.text)['GroupUin'],
                                                    to_usr_id=usr[1],
                                                    send_msg="请同学尽快打卡，如果打了请忽略")
-                    time.sleep(3)
+                    time.sleep(10)

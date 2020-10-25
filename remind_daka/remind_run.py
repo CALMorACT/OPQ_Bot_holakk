@@ -1,5 +1,7 @@
 import queue
 import json
+import time
+
 from . import get_nodaka_usr
 from websocket_sevice import ws_service
 
@@ -52,7 +54,7 @@ def send_nodaka(nodaka_list: list, config: dict):
     nodaka_usr = []
     for group in config["solve_qq_group"]:
         response = ws_service.GetGroupUserList_nowait(config["host"], config["current_qq"], group)
-        for usr in [(x["GroupCard"], x["MemberUin"]) for x in json.loads(response.text)["MemberList"]]:
+        for usr in [(x["GroupCard"], x["MemberUin"]) for x in json.loads(response.content.decode('utf-8'))["MemberList"]]:
             if usr[0] in nodaka_list:
                 nodaka_usr.append((usr[0], usr[1], group))
     if not nodaka_usr:
@@ -65,6 +67,7 @@ def send_nodaka(nodaka_list: list, config: dict):
                                                   send_msg="同学，老师那边显示你未打卡，请同学尽快打卡")
         if response.text != "" and response.status_code == 200:
             ws_service.SendMsg(config['host'], config['current_qq'], "已提醒%s" % each_remind[0], config['admin_list'][0])
+        time.sleep(10)
 
 
 def solve(msg):
