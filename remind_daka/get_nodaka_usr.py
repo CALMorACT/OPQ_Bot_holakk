@@ -37,6 +37,7 @@ class TXApiUse:
         img = Image.open("temp.png")
         w, h = img.size
         cropped = img.crop((0, int(h * 0.1), int(w * 0.16), int(h * 0.95)))
+        cropped.thumbnail(tuple(map(lambda x: x * 0.4, img.size)))
         cropped.save("temp.png")
         with open("temp.png", 'rb') as fileByte:
             self.pic_base64 = base64.b64encode(fileByte.read())
